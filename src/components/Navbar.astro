@@ -1,0 +1,98 @@
+---
+import { containers, text, transitions, gradients } from '../styles/common';
+import ThemeToggle from './ThemeToggle.astro';
+
+const links = [
+  { text: 'Inicio', href: '#home' },
+  { text: 'Proyectos', href: '#projects' },
+  { text: 'Tecnologías', href: '#technologies' },
+  { text: 'Contacto', href: '#contact' },
+];
+---
+
+<nav class="fixed w-full z-50 backdrop-blur-lg border-b border-dark-200 bg-dark/80">
+  <div class={containers.wrapper}>
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a 
+        href="#home" 
+        class={`text-2xl font-bold ${text.gradient}`}
+        aria-label="Inicio"
+      >
+        VN
+      </a>
+
+      <!-- Links de navegación -->
+      <div class="hidden md:flex items-center space-x-8">
+        {links.map(link => (
+          <a
+            href={link.href}
+            class={`${text.body} hover:text-light ${transitions.base}`}
+          >
+            {link.text}
+          </a>
+        ))}
+        <ThemeToggle />
+      </div>
+
+      <!-- Menú móvil -->
+      <div class="md:hidden flex items-center gap-4">
+        <ThemeToggle />
+        <button
+          id="mobile-menu-button"
+          class={`${text.body} p-2 rounded-lg ${transitions.base} hover:bg-dark-200`}
+          aria-label="Abrir menú"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil expandible -->
+    <div
+      id="mobile-menu"
+      class="hidden md:hidden pb-4"
+    >
+      <div class="space-y-2">
+        {links.map(link => (
+          <a
+            href={link.href}
+            class={`block px-4 py-2 ${text.body} hover:text-light ${transitions.base} rounded-lg hover:bg-dark-200`}
+          >
+            {link.text}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  }
+</script>

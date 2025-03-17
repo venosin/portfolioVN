@@ -1,0 +1,98 @@
+---
+import { technologies } from '../../data/technologies';
+import { containers, text, transitions, gradients } from '../../styles/common';
+---
+
+<section id="technologies" class={containers.section}>
+  <div class={containers.sectionBg}></div>
+  
+  <div class={containers.wrapper}>
+    <h2 
+      class={`${text.gradient} text-4xl md:text-5xl font-bold text-center mb-12`}
+      data-aos="fade-up"
+    >
+      Tecnologías
+    </h2>
+
+    <div 
+      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+      data-aos="fade-up"
+      data-aos-delay="200"
+    >
+      {technologies.map((category, categoryIndex) => (
+        category.items.map((tech, index) => (
+          <div 
+            class={`${containers.card} group relative overflow-hidden`}
+            data-aos="zoom-in"
+            data-aos-delay={100 * (categoryIndex * category.items.length + index + 1)}
+          >
+            {/* Efectos de fondo */}
+            <div class="absolute inset-0 bg-gradient-conic from-accent/20 via-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+            <div class="absolute inset-0 bg-gradient-radial from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
+            {/* Partículas flotantes */}
+            <div class="absolute inset-0 overflow-hidden">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <div 
+                  class="absolute w-1 h-1 rounded-full bg-accent/30 animate-float"
+                  style={`left: ${Math.random() * 100}%; top: ${Math.random() * 100}%; animation-delay: ${i * 0.5}s;`}
+                ></div>
+              ))}
+            </div>
+            
+            {/* Efecto de brillo */}
+            <div class="absolute inset-0 animate-shine opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
+            <div class="relative flex flex-col items-center space-y-4">
+              <div class="relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-primary via-accent to-secondary opacity-20 blur-xl rounded-full group-hover:opacity-40 transition-opacity"></div>
+                <div class={`relative w-16 h-16 flex items-center justify-center ${transitions.transform}`}>
+                  <img 
+                    src={tech.icon} 
+                    alt={tech.name} 
+                    class="w-12 h-12 mb-2"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div class="text-center">
+                <h3 class={`${text.heading} font-semibold mb-2`}>{tech.name}</h3>
+              </div>
+            </div>
+          </div>
+        ))
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes shine {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-shine {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: shine 2s linear infinite;
+  }
+</style>

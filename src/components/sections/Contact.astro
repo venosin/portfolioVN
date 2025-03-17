@@ -1,0 +1,221 @@
+---
+import { socialLinks } from '../../data/socialLinks';
+import { containers, text, transitions, gradients } from '../../styles/common';
+---
+
+<section id="contact" class={`${containers.section} relative overflow-hidden`}>
+  <!-- Fondos animados -->
+  <div class={containers.sectionBg}></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,255,178,0.1),transparent_50%)] animate-pulse-slow"></div>
+  
+  <!-- Partículas flotantes -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    {Array.from({ length: 5 }).map((_, i) => (
+      <div 
+        class="absolute w-2 h-2 rounded-full bg-accent/30 animate-float"
+        style={`left: ${Math.random() * 100}%; top: ${Math.random() * 100}%; animation-delay: ${i * 0.5}s;`}
+      ></div>
+    ))}
+  </div>
+
+  <div class={containers.wrapper}>
+    <h2 
+      class={`${text.gradient} text-4xl md:text-5xl font-bold text-center mb-12`}
+      data-aos="fade-up"
+    >
+      Conectemos
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+      <!-- Formulario de Contacto -->
+      <div 
+        class={`${containers.card} relative group`}
+        data-aos="fade-right"
+      >
+        <div class="absolute inset-0 bg-gradient-conic from-accent/20 via-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+        
+        <form id="contact-form" class="relative space-y-6">
+          <div>
+            <label for="name" class={`block ${text.body} mb-2`}>Nombre</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-3 rounded-lg bg-dark-100 border border-dark-200 text-light placeholder-light-300/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all duration-300"
+              placeholder="Tu nombre"
+            />
+          </div>
+          
+          <div>
+            <label for="email" class={`block ${text.body} mb-2`}>Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-3 rounded-lg bg-dark-100 border border-dark-200 text-light placeholder-light-300/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all duration-300"
+              placeholder="tu@email.com"
+            />
+          </div>
+
+          <div>
+            <label for="subject" class={`block ${text.body} mb-2`}>Asunto</label>
+            <select
+              id="subject"
+              name="subject"
+              required
+              class="w-full px-4 py-3 rounded-lg bg-dark-100 border border-dark-200 text-light focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all duration-300"
+            >
+              <option value="" disabled selected>Selecciona un asunto</option>
+              <option value="collaboration">Colaboración</option>
+              <option value="job">Oportunidad laboral</option>
+              <option value="project">Proyecto</option>
+              <option value="other">Otro</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class={`block ${text.body} mb-2`}>Mensaje</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              required
+              class="w-full px-4 py-3 rounded-lg bg-dark-100 border border-dark-200 text-light placeholder-light-300/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all duration-300 resize-none"
+              placeholder="Tu mensaje aquí..."
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class={`w-full relative overflow-hidden ${transitions.base} ${gradients.primary} text-light font-semibold px-8 py-4 rounded-lg hover:shadow-lg hover:shadow-accent/20 ${transitions.transform} ${transitions.glow}`}
+          >
+            <span class="relative z-10">Enviar mensaje</span>
+            <div class={`absolute inset-0 ${gradients.glow}`}></div>
+          </button>
+        </form>
+      </div>
+
+      <!-- Información de Contacto -->
+      <div class="space-y-8">
+        <!-- Redes Sociales -->
+        <div 
+          class={`${containers.card} relative group`}
+          data-aos="fade-left"
+          data-aos-delay="100"
+        >
+          <div class="absolute inset-0 bg-gradient-conic from-accent/20 via-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+          
+          <h3 class={`${text.heading} text-xl font-semibold mb-6`}>
+            Redes Sociales
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {socialLinks.map(link => (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={`flex items-center gap-3 p-4 rounded-lg ${link.color} ${transitions.base} ${transitions.transform} relative overflow-hidden group/link`}
+                aria-label={`Contactar por ${link.name}`}
+              >
+                <span class="relative z-10">
+                  <Fragment set:html={link.icon} />
+                </span>
+                <span class="relative z-10 font-medium text-light">
+                  {link.name}
+                </span>
+                <div class={`absolute inset-0 ${gradients.glow}`}></div>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Disponibilidad -->
+        <div 
+          class={`${containers.card} relative group`}
+          data-aos="fade-left"
+          data-aos-delay="200"
+        >
+          <div class="absolute inset-0 bg-gradient-radial from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          <h3 class={`${text.heading} text-xl font-semibold mb-4`}>
+            Disponibilidad
+          </h3>
+          <div class="space-y-3">
+            <p class={text.body}>
+              <span class="inline-block w-3 h-3 rounded-full bg-accent animate-pulse mr-2"></span>
+              Disponible para proyectos freelance
+            </p>
+            <p class={text.body}>
+              <span class="inline-block w-3 h-3 rounded-full bg-primary animate-pulse mr-2"></span>
+              Abierto a oportunidades laborales
+            </p>
+            <p class={text.body}>
+              <span class="inline-block w-3 h-3 rounded-full bg-secondary animate-pulse mr-2"></span>
+              Interesado en colaboraciones
+            </p>
+          </div>
+        </div>
+
+        <!-- Ubicación -->
+        <div 
+          class={`${containers.card} relative group`}
+          data-aos="fade-left"
+          data-aos-delay="300"
+        >
+          <div class="absolute inset-0 bg-gradient-radial from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          <h3 class={`${text.heading} text-xl font-semibold mb-4`}>
+            Ubicación
+          </h3>
+          <p class={text.body}>
+            <svg class="w-5 h-5 inline-block mr-2 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            México
+          </p>
+          <p class={text.body}>
+            <svg class="w-5 h-5 inline-block mr-2 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Zona Horaria: GMT-6
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.1); }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form');
+  
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // Aquí puedes agregar la lógica para enviar el formulario
+    // Por ejemplo, usando EmailJS o tu propio backend
+    
+    const formData = new FormData(e.target as HTMLFormElement);
+    const data = Object.fromEntries(formData);
+    
+    // Por ahora, solo mostraremos un console.log
+    console.log('Datos del formulario:', data);
+    
+    // Simular envío exitoso
+    alert('¡Mensaje enviado con éxito! Te responderé pronto.');
+    (e.target as HTMLFormElement).reset();
+  });
+</script>

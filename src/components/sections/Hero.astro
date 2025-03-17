@@ -1,0 +1,67 @@
+---
+import { containers, text, transitions, gradients, buttons } from '../../styles/common';
+---
+
+<section id="home" class={`${containers.section} min-h-screen flex items-center justify-center`}>
+  <div class={containers.sectionBg}></div>
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,255,178,0.1),transparent_50%)]"></div>
+  
+  <div class={containers.wrapper}>
+    <div class="text-center">
+      <div 
+        class="relative inline-block mb-6 perspective-1000"
+        data-aos="zoom-in"
+      >
+        <div class="absolute inset-0 bg-gradient-to-r from-primary via-accent to-secondary opacity-50 blur-2xl rounded-full"></div>
+        <div class="relative animate-floating">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary via-accent to-secondary opacity-20 blur-md rounded-full"></div>
+          <img 
+            src="me.webp" 
+            alt="Tu Nombre" 
+            class="relative w-32 h-32 rounded-full border-4 border-dark-200 shadow-xl"
+            loading="lazy"
+          />
+        </div>
+      </div>
+      <h1 
+        class={`text-4xl md:text-6xl font-bold mb-6 ${text.heading}`}
+        data-aos="fade-down"
+      >
+        ¡Hola! Soy <span class={text.gradient}>Venosin</span>
+      </h1>
+      <p 
+        class={`text-xl mb-8 max-w-2xl mx-auto ${text.body}`}
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        Desarrollador web full-stack apasionado por crear experiencias digitales únicas y funcionales.
+      </p>
+      <div 
+        class="flex justify-center gap-4"
+        data-aos="fade-up"
+        data-aos-delay="400"
+      >
+        <a 
+          href="#projects" 
+          class={buttons.primary}
+          aria-label="Ver mis proyectos"
+        >
+          <span class="relative z-10">Ver proyectos</span>
+        </a>
+        <a 
+          href="#contact" 
+          class={buttons.secondary}
+          aria-label="Contactar conmigo"
+        >
+          <span class="relative z-10">Contactar</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+</style>

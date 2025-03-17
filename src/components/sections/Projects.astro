@@ -1,0 +1,134 @@
+---
+import { projects } from '../../data/projects';
+import { containers, text, transitions, gradients, buttons } from '../../styles/common';
+---
+
+<section id="projects" class={containers.section}>
+  <div class={containers.sectionBg}></div>
+  
+  <div class={containers.wrapper}>
+    <h2 
+      class={`${text.gradient} text-4xl md:text-5xl font-bold text-center mb-12`}
+      data-aos="fade-up"
+    >
+      Proyectos
+    </h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map((project, index) => (
+        <article 
+          class={`${containers.card} group relative overflow-hidden`}
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+        >
+          <!-- Efectos de fondo -->
+          <div class="absolute inset-0 bg-gradient-conic from-accent/20 via-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+          <div class="absolute inset-0 bg-gradient-radial from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          <!-- Partículas flotantes -->
+          <div class="absolute inset-0 overflow-hidden">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <div 
+                class="absolute w-1 h-1 rounded-full bg-accent/30 animate-float"
+                style={`left: ${Math.random() * 100}%; top: ${Math.random() * 100}%; animation-delay: ${i * 0.5}s;`}
+              ></div>
+            ))}
+          </div>
+          
+          <!-- Efecto de brillo -->
+          <div class="absolute inset-0 animate-shine opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          <div class="relative space-y-6">
+            <!-- Imagen del proyecto -->
+            <div class="relative aspect-video overflow-hidden rounded-lg">
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-100 to-transparent opacity-50 z-10"></div>
+              <img
+                src={project.image}
+                alt={project.title}
+                class={`w-full h-full object-cover ${transitions.transform}`}
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Contenido -->
+            <div class="space-y-4">
+              <h3 class={`${text.heading} text-xl font-semibold`}>
+                {project.title}
+              </h3>
+              
+              <p class={text.body}>
+                {project.description}
+              </p>
+
+              <!-- Tecnologías -->
+              <div class="flex flex-wrap gap-2">
+                {project.tags.map(tag => (
+                  <span class={`${text.body} text-sm px-3 py-1 rounded-full bg-dark-200/50 border border-dark-200 hover:border-accent/50 transition-colors duration-300`}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <!-- Enlaces -->
+              <div class="flex gap-4 pt-4">
+                {project.demoLink && (
+                  <a
+                    href={project.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class={`${buttons.primary} group-hover:shadow-lg group-hover:shadow-accent/20 transition-shadow duration-300`}
+                    aria-label={`Ver demo de ${project.title}`}
+                  >
+                    <span class="relative z-10">Demo</span>
+                  </a>
+                )}
+                {project.githubLink && (
+                  <a
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class={`${buttons.secondary} group-hover:shadow-lg group-hover:shadow-primary/20 transition-shadow duration-300`}
+                    aria-label={`Ver código de ${project.title}`}
+                  >
+                    <span class="relative z-10">Código</span>
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes shine {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-shine {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: shine 2s linear infinite;
+  }
+</style>
