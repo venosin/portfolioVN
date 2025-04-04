@@ -63,7 +63,7 @@ import { containers, text, transitions, gradients, buttons } from '../../styles/
               <!-- Tecnologías -->
               <div class="flex flex-wrap gap-2">
                 {project.tags.map(tag => (
-                  <span class={`${text.body} text-sm px-3 py-1 rounded-full bg-dark-200/50 border border-dark-200 hover:border-accent/50 transition-colors duration-300`}>
+                  <span class="tech-tag">
                     {tag}
                   </span>
                 ))}
@@ -101,6 +101,43 @@ import { containers, text, transitions, gradients, buttons } from '../../styles/
     </div>
   </div>
 </section>
+
+<style>
+  .tech-tag {
+    display: inline-block;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    border: 1px solid;
+  }
+  
+  /* Estilos para modo claro */
+  :root:not(.dark) .tech-tag {
+    background: linear-gradient(to right, #e0f2fe, #f3e8ff);
+    color: #2563eb;
+    border-color: #bfdbfe;
+    font-weight: 500;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Estilos para modo oscuro */
+  :root.dark .tech-tag {
+    background-color: rgba(55, 65, 81, 0.5);
+    color: #d1d5db;
+    border-color: #374151;
+    font-weight: normal;
+    box-shadow: none;
+  }
+  
+  :root:not(.dark) .tech-tag:hover {
+    border-color: rgba(99, 102, 241, 0.5);
+  }
+  
+  :root.dark .tech-tag:hover {
+    border-color: rgba(99, 102, 241, 0.5);
+  }
+</style>
 
 <style>
   @keyframes float {

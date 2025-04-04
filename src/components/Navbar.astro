@@ -10,7 +10,7 @@ const links = [
 ];
 ---
 
-<nav class="fixed w-full z-50 backdrop-blur-lg border-b border-dark-200 bg-dark/80">
+<nav class="fixed w-full z-50 backdrop-blur-lg border-b border-dark-200 dark:bg-dark/80 bg-white/80">
   <div class={containers.wrapper}>
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
@@ -27,7 +27,7 @@ const links = [
         {links.map(link => (
           <a
             href={link.href}
-            class={`${text.body} hover:text-light ${transitions.base}`}
+            class={`${text.body} dark:hover:text-light hover:text-primary ${transitions.base} text-gray-700 dark:text-gray-300`}
           >
             {link.text}
           </a>
@@ -40,7 +40,7 @@ const links = [
         <ThemeToggle />
         <button
           id="mobile-menu-button"
-          class={`${text.body} p-2 rounded-lg ${transitions.base} hover:bg-dark-200`}
+          class={`${text.body} p-2 rounded-lg ${transitions.base} hover:bg-gray-100 dark:hover:bg-dark-200 text-gray-700 dark:text-gray-300`}
           aria-label="Abrir menú"
         >
           <svg
@@ -69,7 +69,7 @@ const links = [
         {links.map(link => (
           <a
             href={link.href}
-            class={`block px-4 py-2 ${text.body} hover:text-light ${transitions.base} rounded-lg hover:bg-dark-200`}
+            class={`block px-4 py-2 ${text.body} dark:hover:text-light hover:text-primary ${transitions.base} rounded-lg hover:bg-gray-100 dark:hover:bg-dark-200 text-gray-700 dark:text-gray-300`}
           >
             {link.text}
           </a>

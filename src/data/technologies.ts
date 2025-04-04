@@ -10,10 +10,20 @@ export const technologies: TechnologyCategory[] = [
         url: "https://reactjs.org"
       },
       {
-        name: "Vue.js",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original.svg",
-        url: "https://vuejs.org"
+        name: "Next.js",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg",
+        url: "https://nextjs.org"
       },
+      {
+        name: "Vite",
+        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/vitejs/vitejs-original.svg",
+        url: "https://vitejs.dev"
+      },
+      // {
+      //   name: "Vue.js",
+      //   icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/vuejs/vuejs-original.svg",
+      //   url: "https://vuejs.org"
+      // },
       {
         name: "TypeScript",
         icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
@@ -34,11 +44,11 @@ export const technologies: TechnologyCategory[] = [
         icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg",
         url: "https://nodejs.org"
       },
-      {
-        name: "Python",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
-        url: "https://www.python.org"
-      },
+      // {
+      //   name: "Python",
+      //   icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
+      //   url: "https://www.python.org"
+      // },
       {
         name: "Express",
         icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg",
@@ -54,11 +64,11 @@ export const technologies: TechnologyCategory[] = [
         icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg",
         url: "https://www.mongodb.com"
       },
-      {
-        name: "PostgreSQL",
-        icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg",
-        url: "https://www.postgresql.org"
-      }
+      // {
+      //   name: "PostgreSQL",
+      //   icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg",
+      //   url: "https://www.postgresql.org"
+      // }
     ]
   },
   {

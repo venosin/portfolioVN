@@ -3,26 +3,26 @@ import type { Project } from '../types';
 export const projects: Project[] = [
   {
     title: 'Proyecto 1',
-    description: 'Descripción del proyecto 1',
+    description: 'Foodies, mi primer proyecto de desarrollo web profesional, basado solamente en Frontend',
     image: 'foodies.webp',
-    tags: ['React', 'TailwindCSS', 'Node.js'],
+    tags: ['Next.js', 'TailwindCSS', 'TypeScript'],
     demoLink: 'https://foodiescd1.vercel.app/',
     githubLink: 'https://github.com/venosin/foodiescd'
   },
   {
-    title: 'Proyecto 2',
-    description: 'Descripción del proyecto 2',
+    title: 'WorkBuddy',
+    description: 'Tienda en linea de inmuebles, proyecto de desarrollo web profesional en proceso',
     image: 'https://via.placeholder.com/800x400',
-    tags: ['Vue.js', 'Firebase', 'TypeScript'],
+    tags: ['React', 'TailwindCSS', 'MongoDB', 'Node.js'],
     demoLink: 'https://proyecto2.demo',
-    githubLink: 'https://github.com/usuario/proyecto2'
+    githubLink: 'https://github.com/venosin/workbuddy-frontend'
   },
   {
-    title: 'Proyecto 3',
-    description: 'Descripción del proyecto 3',
+    title: 'WorkBuddy Backend',
+    description: 'Backend de WorkBuddy, proyecto de desarrollo web profesional en proceso',
     image: 'https://via.placeholder.com/800x400',
-    tags: ['Next.js', 'MongoDB', 'AWS'],
+    tags: ['Node.js', 'MongoDB', 'Express'],
     demoLink: 'https://proyecto3.demo',
-    githubLink: 'https://github.com/usuario/proyecto3'
+    githubLink: 'https://github.com/venosin/workbuddy-backend'
   }
 ];
